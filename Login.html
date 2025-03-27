@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="" id="loginForm">
+            <label for="user">User Name</label>
+            <input type="text" id="user"> 
+            
+            <label for="pwd">Password</label>
+            <input type="password" id="pwd">
+            
+            <button type="submit">Login</button>
+            
+            <p id="error" style="color: red;"></p>
+        </form>
+    </div>
+
+    <script>
+       
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+          
+            event.preventDefault(); // Prevent form submission
+
+         
+            let userName = document.getElementById("user").value.trim();
+            let passWord = document.getElementById("pwd").value.trim();
+            let error = document.getElementById("error");
+
+            if (userName !== "task" || passWord !== "1234") {
+
+                error.textContent = "Please enter a valid Username and Password";
+
+            } else {
+
+                error.textContent = "";
+
+                alert("Login Successful!");
+
+                window.location.href="https://task.telangana.gov.in/"
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods Demo</title>
+   <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>JavaScript Array Methods Demo</h2>
+
+        <input type="text" id="nameInput" placeholder="Enter a name">
+        <button class="add-btn" onclick="addName()">Add Name</button>
+
+        <br><br>
+
+        <button class="control-btn" onclick="pushName()">Push</button>
+        <button class="control-btn" onclick="popName()">Pop</button>
+        <button class="control-btn" onclick="unshiftName()">Unshift</button>
+        <button class="control-btn" onclick="shiftName()">Shift</button>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        let names = ["Khammam", "Warangal", "Nalgonda", "Hyderabad", "Nizamabad"];
+        updateOutput();
+
+        function updateOutput() {
+            document.getElementById("output").innerHTML = "Array: " + names.join(", ");
+        }
+
+        function addName() {
+            let input = document.getElementById("nameInput").value;
+            if (input) {
+                names.push(input);
+                document.getElementById("nameInput").value = ""; // Clear input
+                updateOutput();
+            } else {
+                alert("Enter a valid name!");
+            }
+        }
+
+        function pushName() {
+            names.push("Palvancha");
+            updateOutput();
+        }
+
+        function popName() {
+            names.pop();
+            updateOutput();
+        }
+
+        function unshiftName() {
+            names.unshift("Dornakal");
+            updateOutput();
+        }
+
+        function shiftName() {
+            names.shift();
+            updateOutput();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID to Name Lookup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>ID to Name Lookup</h2>
+    <input type="text" id="idInput" placeholder="Enter ID">
+    <button onclick="lookupName()">Find Name</button>
+    <div id="output"></div>
+
+    <script>
+        let jsonData = []; // Array to store JSON data
+
+        // Fetch JSON file and store data
+        fetch('task.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data.students; // Assign the students array
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+
+        function lookupName() {
+            let id = document.getElementById("idInput").value.trim();
+            let output = document.getElementById("output");
+            
+            // Find the student by ID
+            let student = jsonData.find(student => student.id === id);
+            
+            if (student) {
+                output.textContent = "Name: " + student.name;
+            } else {
+                output.textContent = "ID not found";
+            }
+        }
+    </script>
+</body>
+</html>

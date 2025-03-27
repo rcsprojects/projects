@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass/Fail Grade Checker</title>
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+
+    <div class="container">
+        <h2>Pass/Fail Grade Checker</h2>
+        <input type="number" id="scoreInput" placeholder="Enter score">
+        <button onclick="checkGrade()">Check Grade</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkGrade() {
+            let pass = document.getElementById("scoreInput").value;
+
+            let resultText = "";
+
+            if (pass < 40) {
+                resultText = "Student has Failed 🥹";
+            } else if (pass >= 80 && pass <= 100) {
+                resultText = "Student got Grade A 🏆";
+            } else if (pass >= 60 && pass <= 79) {
+                resultText = "Student got Grade B ☺️";
+            } else if (pass >= 40 && pass <= 59) {
+                resultText = "Student got Grade C 😐";
+            } else {
+                resultText = "Invalid score! Enter between 0-100.";
+            }
+
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+
+</body>
+</html>

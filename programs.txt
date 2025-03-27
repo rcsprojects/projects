@@ -1,0 +1,7 @@
+1. Calculator(operator)
+2.get weekday(swith)
+3.Stuents grade(if else)
+4.Login form
+5.student data validation ( arry, object, json)
+6.traffic signal (for loop)
+
